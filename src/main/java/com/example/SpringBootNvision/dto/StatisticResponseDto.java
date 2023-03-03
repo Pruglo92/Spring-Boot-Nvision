@@ -5,30 +5,30 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Positive;
+import java.time.LocalDateTime;
 
-
-//@XmlAccessorType(XmlAccessType.FIELD)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record JobsRequestDto(
+public record StatisticResponseDto(
 
         @NotNull
-//        @XmlAttribute(name = "id")
+        @Positive
         Long id,
 
-        @NotBlank(message = "Unknown type")
-//        @XmlElement(name = "type")
-        JobsType type,
+        @NotBlank
+        String device,
 
         @NotBlank
-//        @XmlElement(name = "user")
         String user,
 
         @NotBlank
-//        @XmlElement(name = "device")
-        String device,
+        JobsType type,
 
         @NotNull
-//        @XmlElement(name = "amount")
-        Integer amount
+        Integer amount,
+
+        @PastOrPresent
+        LocalDateTime time
 ) {
 }
