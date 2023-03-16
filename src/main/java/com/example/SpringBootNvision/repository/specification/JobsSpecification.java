@@ -33,15 +33,15 @@ public class JobsSpecification implements Specification<Jobs> {
                     statisticRequestDto.user().toUpperCase()));
         }
         if (statisticRequestDto.type() != null) {
-            predicates.add(criteriaBuilder.equal(criteriaBuilder.upper(root.get("type")),
-                    statisticRequestDto.type()));
+            predicates.add(criteriaBuilder.equal(criteriaBuilder.lower(root.get("type")),
+                    statisticRequestDto.type().name()));
         }
         if (statisticRequestDto.timeFrom() != null) {
-            predicates.add(criteriaBuilder.equal(criteriaBuilder.upper(root.get("time")),
+            predicates.add(criteriaBuilder.greaterThanOrEqualTo(root.get("time"),
                     statisticRequestDto.timeFrom()));
         }
         if (statisticRequestDto.timeTo() != null) {
-            predicates.add(criteriaBuilder.equal(criteriaBuilder.upper(root.get("time")),
+            predicates.add(criteriaBuilder.lessThanOrEqualTo(root.get("time"),
                     statisticRequestDto.timeTo()));
         }
         return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
