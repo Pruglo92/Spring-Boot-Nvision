@@ -1,15 +1,16 @@
 package com.example.SpringBootNvision.service;
 
+import com.example.SpringBootNvision.dto.StatisticRequestDto;
+import com.example.SpringBootNvision.dto.StatisticResponseDto;
 import com.example.SpringBootNvision.entity.Jobs;
+import org.springframework.data.domain.Sort;
 
 import java.util.List;
-import java.util.Map;
 
 public interface JobsService {
 
     Jobs register(Jobs jobs);
 
-    List<Jobs> getAllJobs();
+    List<StatisticResponseDto> getAllJobs(StatisticRequestDto dto, Sort sort);
 
-    List<Jobs> getAllJobsWithFilter(Map<String, String> map);
 }
