@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @Table(name = "jobs")
 public class Jobs extends BaseEntity {
 
-    public static final String DATE_PATTERN = "dd.MM.yyyy HH:mm";
     @NonNull
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
@@ -37,8 +36,6 @@ public class Jobs extends BaseEntity {
 
     @NonNull
     @Column(name = "time")
-    @DateTimeFormat(pattern = DATE_PATTERN)
-    @JsonFormat(pattern = DATE_PATTERN)
     @CreatedDate
     private LocalDateTime time;
 }
