@@ -1,17 +1,18 @@
 package com.example.SpringBootNvision.mapper;
 
-import com.example.SpringBootNvision.dto.JobsRequestDto;
+import com.example.SpringBootNvision.dto.Job;
 import com.example.SpringBootNvision.dto.JobsResponseDto;
 import com.example.SpringBootNvision.dto.StatisticResponseDto;
-import com.example.SpringBootNvision.entity.Jobs;
+import com.example.SpringBootNvision.entity.JobsEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper
 public interface JobsMapper {
+    @Mapping(target = "time", ignore = true)
+    JobsEntity toEntity(Job job);
 
-    Jobs toEntity(JobsRequestDto dto);
+    JobsResponseDto toDto(JobsEntity entity);
 
-    JobsResponseDto toDto(Jobs entity);
-
-    StatisticResponseDto toStatisticDto(Jobs entity);
+    StatisticResponseDto toStatisticDto(JobsEntity entity);
 }

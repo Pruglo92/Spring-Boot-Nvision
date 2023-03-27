@@ -1,7 +1,7 @@
 package com.example.SpringBootNvision.repository.specification;
 
 import com.example.SpringBootNvision.dto.StatisticRequestDto;
-import com.example.SpringBootNvision.entity.Jobs;
+import com.example.SpringBootNvision.entity.JobsEntity;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class JobsSpecification implements Specification<Jobs> {
+public class JobsSpecification implements Specification<JobsEntity> {
 
     private final StatisticRequestDto statisticRequestDto;
 
     @Override
-    public Predicate toPredicate(@NonNull Root<Jobs> root,
+    public Predicate toPredicate(@NonNull Root<JobsEntity> root,
                                  @NonNull CriteriaQuery<?> query,
                                  @NonNull CriteriaBuilder criteriaBuilder) {
         List<Predicate> predicates = new ArrayList<>();

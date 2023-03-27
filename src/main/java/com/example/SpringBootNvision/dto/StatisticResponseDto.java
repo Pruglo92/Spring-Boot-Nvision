@@ -7,8 +7,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
-import javax.validation.constraints.Positive;
 import java.time.LocalDateTime;
 
 import static com.example.SpringBootNvision.utils.DataConstants.DATE_PATTERN;
@@ -31,8 +29,8 @@ public record StatisticResponseDto(
         @NotNull
         Integer amount,
 
-//        @JsonFormat(pattern = DATE_PATTERN)
         @DateTimeFormat(pattern = DATE_PATTERN)
+        @JsonFormat(pattern = DATE_PATTERN)
         LocalDateTime time
 ) {
 }

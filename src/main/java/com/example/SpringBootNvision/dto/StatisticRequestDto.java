@@ -1,9 +1,7 @@
 package com.example.SpringBootNvision.dto;
 
 import com.example.SpringBootNvision.entity.enums.JobsType;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotBlank;
@@ -13,7 +11,6 @@ import static com.example.SpringBootNvision.utils.DataConstants.DATE_PATTERN;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record StatisticRequestDto(
-
 
         @NotBlank
         String device,
