@@ -13,6 +13,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
+    open-in-view: false
 
   liquibase:
     change-log: "db.changelog/db.changelog.yml"
