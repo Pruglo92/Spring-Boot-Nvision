@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 
@@ -35,15 +33,10 @@ public class JobsServiceImpl implements JobsService {
                 .map(jobsMapper::toEntity)
                 .map(jobsRepository::save)
                 .map(jobsMapper::toDto)
-                .collect(Collectors.groupingBy(JobsResponseDto::user))
+                .collect(Collectors.groupingBy(JobsResponseDto::user,
+                        Collectors.summingInt(JobsResponseDto::amount)))
                 .entrySet().stream()
-                .collect(Collectors.toMap(
-                        Map.Entry::getKey,
-                        e -> String.valueOf(e.getValue().stream()
-                                .mapToInt(JobsResponseDto::amount)
-                                .sum()), (o1, o2) -> o1, TreeMap::new))
-                .entrySet().stream()
-                .map(JobsResponseDto::new)
+                .map(e -> new JobsResponseDto(e.getKey(), e.getValue()))
                 .toList();
 
         log.info("was registered " + jobs.getJobList().size());
