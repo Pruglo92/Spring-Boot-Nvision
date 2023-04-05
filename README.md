@@ -122,6 +122,6 @@ GET /statistics?type=copy&device=device9
 3. файлом start.bat или start.sh, с помощью которого приложение запускается;
 4. файл readme.txt с пояснениями (при необходимости).
 
-Для удобства был подключен swagger v3.
+### Для удобства был подключен swagger v3.
 В браузере можно подключиться к его UI по URL:
 http://localhost:8080/swagger-ui/index.html#/
