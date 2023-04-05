@@ -28,7 +28,7 @@ public class JobsServiceImpl implements JobsService {
     private final JobsMapper jobsMapper;
 
     @Override
-    public List<JobsResponseDto> register(Jobs jobs) {
+    public List<JobsResponseDto> register(final Jobs jobs) {
         var response = jobs.getJobList().stream()
                 .map(jobsMapper::toEntity)
                 .map(jobsRepository::save)
@@ -44,7 +44,7 @@ public class JobsServiceImpl implements JobsService {
     }
 
     @Override
-    public List<StatisticResponseDto> getAllJobs(StatisticRequestDto dto, Sort sort) {
+    public List<StatisticResponseDto> getAllJobs(final StatisticRequestDto dto, final Sort sort) {
         var jobs = jobsRepository.findAll(new JobsSpecification(dto), sort)
                 .stream()
                 .map(jobsMapper::toStatisticDto)
