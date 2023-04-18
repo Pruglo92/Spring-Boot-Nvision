@@ -1,6 +1,6 @@
 package com.example.SpringBootNvision.dto;
 
-import com.example.SpringBootNvision.entity.enums.JobsType;
+import com.example.SpringBootNvision.enums.JobsType;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

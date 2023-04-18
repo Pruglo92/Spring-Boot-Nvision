@@ -1,6 +1,6 @@
 package com.example.SpringBootNvision.entity;
 
-import com.example.SpringBootNvision.entity.enums.JobsType;
+import com.example.SpringBootNvision.enums.JobsType;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Hibernate;
