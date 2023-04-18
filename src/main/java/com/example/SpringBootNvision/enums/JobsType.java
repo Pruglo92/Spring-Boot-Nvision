@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public enum JobsType {
     @JsonProperty("print")
-    PRINT(),
+    PRINT,
     @JsonProperty("copy")
-    COPY(),
+    COPY,
     @JsonProperty("scan")
-    SCAN(),
+    SCAN,
     @JsonProperty("fax")
-    FAX()
+    FAX
 }
