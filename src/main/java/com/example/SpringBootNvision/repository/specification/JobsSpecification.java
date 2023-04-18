@@ -33,7 +33,7 @@ public class JobsSpecification implements Specification<JobsEntity> {
                     statisticRequestDto.user().toUpperCase()));
         }
         if (statisticRequestDto.type() != null) {
-            predicates.add(criteriaBuilder.equal(criteriaBuilder.lower(root.get("type")),
+            predicates.add(criteriaBuilder.equal(criteriaBuilder.upper(root.get("type")),
                     statisticRequestDto.type().name()));
         }
         if (statisticRequestDto.timeFrom() != null) {
