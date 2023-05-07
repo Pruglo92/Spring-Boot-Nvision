@@ -18,10 +18,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Jobs {
+public class JobsDto {
 
     @Schema(name = "job")
     @JacksonXmlProperty(localName = "job")
     @JacksonXmlElementWrapper(useWrapping = false)
-    private List<Job> jobList;
+    private List<JobDto> jobDtoList;
 }
