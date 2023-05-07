@@ -1,6 +1,6 @@
 package com.example.SpringBootNvision.service.impl;
 
-import com.example.SpringBootNvision.dto.Jobs;
+import com.example.SpringBootNvision.dto.JobsDto;
 import com.example.SpringBootNvision.dto.JobsResponseDto;
 import com.example.SpringBootNvision.dto.StatisticRequestDto;
 import com.example.SpringBootNvision.dto.StatisticResponseDto;
@@ -28,8 +28,8 @@ public class JobsServiceImpl implements JobsService {
     private final JobsMapper jobsMapper;
 
     @Override
-    public List<JobsResponseDto> register(final Jobs jobs) {
-        var response = jobs.getJobList().stream()
+    public List<JobsResponseDto> register(final JobsDto jobsDto) {
+        var response = jobsDto.getJobDtoList().stream()
                 .map(jobsMapper::toEntity)
                 .map(jobsRepository::save)
                 .map(jobsMapper::toDto)
@@ -39,7 +39,7 @@ public class JobsServiceImpl implements JobsService {
                 .map(e -> new JobsResponseDto(e.getKey(), e.getValue()))
                 .toList();
 
-        log.info("was registered " + jobs.getJobList().size());
+        log.info("was registered " + jobsDto.getJobDtoList().size());
         return response;
     }
 

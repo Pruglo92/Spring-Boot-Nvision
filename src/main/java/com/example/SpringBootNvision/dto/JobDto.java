@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Job {
+public class JobDto {
 
     @Schema(accessMode = Schema.AccessMode.READ_ONLY)
     @JacksonXmlProperty(localName = "id", isAttribute = true)

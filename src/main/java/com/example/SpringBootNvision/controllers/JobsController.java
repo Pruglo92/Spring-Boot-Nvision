@@ -1,6 +1,6 @@
 package com.example.SpringBootNvision.controllers;
 
-import com.example.SpringBootNvision.dto.Jobs;
+import com.example.SpringBootNvision.dto.JobsDto;
 import com.example.SpringBootNvision.dto.JobsResponseDto;
 import com.example.SpringBootNvision.dto.StatisticRequestDto;
 import com.example.SpringBootNvision.dto.StatisticResponseDto;
@@ -32,8 +32,8 @@ public class JobsController {
     public ResponseEntity<List<JobsResponseDto>> createJobs(
             @Parameter(in = ParameterIn.DEFAULT,
                     required = true,
-                    schema = @Schema()) @Valid @RequestBody Jobs jobs) {
-        return ResponseEntity.ok(jobsService.register(jobs));
+                    schema = @Schema()) @Valid @RequestBody JobsDto jobsDto) {
+        return ResponseEntity.ok(jobsService.register(jobsDto));
     }
 
     @Operation(summary = "Get statistics")
