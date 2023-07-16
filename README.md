@@ -127,3 +127,4 @@ GET /statistics?type=copy&device=device9
 http://localhost:8080/swagger-ui/index.html#/
 
 ### Также была подключена библиотека Junit и написаны тесты на сервисный слой данного приложения для демонстрации своих навыков.
+### Данное приложение можно собрать и запустить в Docker командой docker-compose up
